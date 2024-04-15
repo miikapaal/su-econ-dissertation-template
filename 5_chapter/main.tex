@@ -1,0 +1,48 @@
+\graphicspath{{5_chapter/figures/}}
+
+% Define filter for appendix references, cf. https://tex.stackexchange.com/a/617196
+% Ensure appendix references only contains references that do not appear in the main text
+\defbibfilter{appendixOnlyFilter}{
+    segment=1 % Segment 1 will be chosen to be the one in appendix
+    and not segment=0 % Default segment is 0
+}
+% Use symbol for acknowledgements footnote
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\chapter[Title of Chapter 4]{Title of Chapter 4\footnote{\noindent
+This chapter is co-authored with Jane Doe. Acknowledgements here.}}
+\label{chapter:chapter4-alias}
+\markboth{Title of Chapter 4}{}
+\newpage
+
+% Move back to numbered footnotes and reset counter
+\setcounter{footnote}{0}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
+\section{\label{}Name of section}
+
+This paper studies the role of endogenous social norms in shaping the effectiveness of environmental policies, building on the framework of \citet{besley2023political}. \lipsum[1-2]
+
+\input{5_chapter/figures/example-figure.tex}
+
+\lipsum[3-4]
+
+\subsection{\label{}Name of subsection}
+
+\lipsum[5-6]
+
+\input{5_chapter/tables/example-table.tex}
+
+\lipsum[7-8]
+
+\subsubsection{\label{}Name of subsubsection}
+
+\lipsum[9-10]
+
+\newpage{}
+\printbibliography[segment=0,heading=subbibintoc]
+
+\newpage{}
+\begin{subappendices}
+\newrefsegment %% <== increases the segment number (0 by default)
+\input{5_chapter/appendix.tex}
+\end{subappendices}

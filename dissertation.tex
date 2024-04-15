@@ -1,0 +1,100 @@
+\documentclass[twoside,11pt]{config/dissertation}
+\include{config/macros}
+
+\hbadness=10000
+\hfuzz=50pt
+
+\usepackage[
+   backend=biber,
+   natbib=true,
+   style=apa,
+   doi=false,
+   refsection=chapter
+]{biblatex}
+\addbibresource{1_introduction/references.bib}
+\addbibresource{2_chapter/references.bib}
+\addbibresource{3_chapter/references.bib}
+\addbibresource{4_chapter/references.bib}
+\addbibresource{5_chapter/references.bib}
+
+\title{Title of Dissertation}
+\subtitle{Subtitle of Dissertation}
+\author{John Doe}
+
+\pdfinfo{
+   /Author (John Doe)
+   /Title  (Title of Dissertation)
+   /CreationDate (D:202404151830)
+   /Subject (Economics)
+   /Keywords (keywords,keywords,keywords)
+}
+
+\begin{document}
+\selectlanguage{english}
+\frontmatterSUecon
+\pagenumbering{gobble} % Turn off page numbering up to dedication page
+\halftitlepage
+\maketitle
+
+\newpage
+\noindent Doctoral Dissertation
+
+\noindent Department of Economics
+% \noindent Institute for International Economic Studies
+
+\noindent Stockholm University
+
+\phantom{.}
+\vspace{\stretch{1}}
+
+{\fontfamily{verdana}\selectfont
+{\scriptsize
+\noindent
+\copyright John Doe, Stockholm 20XX
+
+\vspace{5mm}
+\noindent
+ISBN print XXX-XX-XXXX-XXX-X\newline % Provided by the library
+ISBN PDF XXX-XX-XXXX-XXX-X\newline % Provided by the library
+ISSN XXXX-XXXX
+
+\vspace{5mm}
+\noindent
+Printed in Sweden by Universitetsservice US-AB, Stockholm 20XX % Change if use a different printing company
+
+\noindent
+%%% Name of department
+Distributor: Department of Economics, Stockholm University
+% Distributor: Institute for International Economic Studies, Stockholm University
+}
+}
+\cleardoublepage
+\input{0_frontmatter/abstract}
+\include{0_frontmatter/dedication}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\include{0_frontmatter/acknowledgement}
+
+\setcounter{secnumdepth}{2}   % Organizational level that receives a numbers
+\setcounter{tocdepth}{2}      % Print table of contents for level 2
+{\sffamily\tableofcontents}   % Print the table of contents using the Arial font
+% Levels are: 0 - chapter, 1 - section, 2 - subsection, 3 - subsubsection
+
+\mainmatterSUecon
+\setcounter{page}{1}
+\include{1_introduction/main}
+\include{2_chapter/main}
+\include{3_chapter/main}
+\include{4_chapter/main}
+\include{5_chapter/main}
+
+\backmatterSUecon
+\include{6_backmatter/sammanfattning}
+\cleardoublepage
+\pagestyle{empty}
+\pagenumbering{gobble} % Turn off page numbering for dissertation series list
+%%% Add dissertation series list
+\include{6_backmatter/nek_monograph_series}
+% \include{6_backmatter/iies_monograph_series}
+
+\end{document}
