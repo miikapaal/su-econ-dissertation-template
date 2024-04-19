@@ -23,8 +23,10 @@ To change the font, change [line 55 in `config/dissertation.cls`](./config/disse
 
 ## Using the template
 
-To compile [the dissertation TeX file](./dissertation.tex), use `pdflatex`.
+The easiest way to compile [the dissertation TeX file](./dissertation.tex) is to run the script [`compile.py`](./compile.py).  
+Assuming the name of the Python 3 executable is `python`, open a terminal, go to the root of the repository, and run `python compile.py`.
 
-For example, if you have a Mac and use [TeXShop](https://en.wikipedia.org/wiki/TeXShop), use `pdflatexmk` to compile.
+Alternatively, if you have a Mac and use [TeXShop](https://en.wikipedia.org/wiki/TeXShop), you can use `pdflatexmk` to compile.  
+I have also confirmed that compiling works using VSCode and the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension.
 
-I am not planning to make changes to this repository. You are free to use this template by downloading or forking the repository.
+You are free to use this template by downloading, forking, or cloning the repository.
